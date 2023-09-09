@@ -4,8 +4,14 @@
   - name: chiru
     prompt: mohan
     private: false
+  vars: 
+  - mydetails:
+    name: mohan
+    age: 25
+    weight: 80
+      
 
   tasks:
   - name: validating the variable
     ansible.builtin.debug:
-      msg: "{{chiru | trim}}"
+      msg: "{{mydetails}}"
