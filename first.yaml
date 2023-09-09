@@ -14,4 +14,13 @@
     ansible.builtin.service:
       name: mongod
       state: started
-      enabled: yes
+      enabled: yes 
+  - name: enable the connections to mongodb 
+    ansible.builtin.replace:
+      path: /etc/mongod.conf
+      regex: "127.0.0.1"
+      replace: "0.0.0.0"
+  - name: restart themondodb
+    ansible.builtin.service:
+      name: mongod
+      state: restarted
