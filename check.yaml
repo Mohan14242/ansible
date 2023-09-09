@@ -1,13 +1,18 @@
-- name: checing the directory or not
+- name: checking the use exist or not
   hosts: localhost
   become: yes
   tasks:
-  - name: checking the user exist or not
+  - name: checking  the user
     ansible.builtin.command: id roboshop
     register: mohan
-  - name: pringting the variable
+  - name: printign the variables
     ansible.builtin.debug:
-      msg: "the output of the varable is {{mohan}}"
-  - when: mohan.rc =0
+      msg: "theut o fthe variable is {{mohan.stdout}}"
+  - name: check if theuser is exist 
     ansible.builtin.debug:
-      msg: "the user is exists"
+      msg: "user is exist"
+    when: mohan.rc ==0
+  - name: checing the user is not exis
+    ansible.builtin.debug:  
+      msg: "user is not exist"
+    when: mohan.rc ==1
