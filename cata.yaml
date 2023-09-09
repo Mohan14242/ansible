@@ -42,5 +42,20 @@
       src: /tmp/catalogue.zip
       dest: /app
 
+  - name: installing the npm 
+    ansible.builtin.command: npm install
+    args: 
+      chdir: /app
 
-    
+  - name: copy the catalogue service module
+    ansible.builtin.copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+
+  - name: deamon relaod
+    ansible.builtin.systemd:
+      deamon_reload: true
+  - name: installing teh ongogo
+    ansible.builtin.yum:
+      name: mongodb-org-shell
+      state: installed
