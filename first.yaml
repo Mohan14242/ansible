@@ -5,10 +5,10 @@
     prompt: mohan
     private: false
   vars: 
-  - mydetails:
-    name: mohan
-    age: 25
-    weight: 80
+    mydetails:
+      na: mohan
+      age: 25
+      weight: 80
       
 
   tasks:
