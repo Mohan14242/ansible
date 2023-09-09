@@ -3,9 +3,9 @@
   vars_prompt:
   - name: chiru
     prompt: mohan
-    private: true
+    private: false
 
   tasks:
   - name: validating the variable
     ansible.builtin.debug:
-      msg: "{{chiru}}"
+      msg: "{{chiru[10:20]}}"
