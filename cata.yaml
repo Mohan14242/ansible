@@ -23,5 +23,17 @@
       path: /app
     register: directoor
 
+  - name: print the directory status
+    ansible.builtin.debug:
+      msg: "the status is {{directoor}}"
+  
+  - when: directoor.stat.exists == 'false'
+    name: create/app directory
+    ansible.builtin.files:
+      path: /app
+      state: directory
+
+
+
 
     
