@@ -1,0 +1,10 @@
+- name: checing the directory or not
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: checking the user exist or not
+    ansible.builtin.command: id roboshop
+    register: mohan
+  - name: pringting the variable
+    ansible.builtin.debug:
+      msg: "the output of the varable is {{mohan}}"

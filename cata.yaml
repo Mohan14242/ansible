@@ -8,3 +8,20 @@
     ansible.builtin.yum: 
       name: nodejs
       state: installed
+  - name: checking the roboshp user exit or not 
+    ansible.builtin.command: id roboshop
+    register: out
+    ignore_errors: true
+  
+  - when: out.rc !=0 
+    name: create the user
+    become: yes
+    ansible.builtin.user:
+      name: roboshop
+  - name: checking the directory is exist or not if not exist creaitng directoor
+    ansible.builtin.stats:
+      path: /app
+    register: directoor
+
+
+    
