@@ -8,4 +8,4 @@
   tasks:
   - name: validating the variable
     ansible.builtin.debug:
-      msg: "{{chiru | length}}"
+      msg: "{{chiru | trim}}"
