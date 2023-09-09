@@ -1,11 +1,11 @@
 - name: for loops
   hosts: localhost
   vars_prompt:
-  - name: this is from input
+  - name: chiru
     prompt: mohan
     private: true
 
   tasks:
   - name: validating the variable
     ansible.builtin.debug:
-      msg: "{{mohan}}"
+      msg: "{{chiru}}"
