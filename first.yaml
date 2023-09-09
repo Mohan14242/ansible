@@ -14,4 +14,4 @@
   tasks:
   - name: validating the variable
     ansible.builtin.debug:
-      msg: "{{mydetails}}"
+      msg: "{{mydetails.keys()}}"
