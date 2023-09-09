@@ -1,17 +1,13 @@
 - name: for loops
   hosts: localhost
-  vars_prompt:
-  - name: chiru
-    prompt: mohan
-    private: false
-  vars: 
-    mydetails:
-      na: mohan
-      age: 25
-      weight: 80
-      
-
+  become: yes
   tasks:
-  - name: validating the variable
-    ansible.builtin.debug:
-      msg: "{{'mohan' in mydetails.values()}}"
+  - name: installing the spackages
+    ansible.builtin.yum:
+      name: {{item}}
+      state: {{state}}
+    loop:
+      - {name: 'nginx', state: 'installed'}
+      - {name: 'postfix' ,state: 'installed'}
+
+  
