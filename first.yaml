@@ -1,13 +1,13 @@
-- name: for loops
+- name: for seeting up roboshop project
   hosts: localhost
   become: yes
   tasks:
-  - name: installing the spackages
+  - name: copy the mongo repo to yum.repos.d
+    ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+  - name: install mongodb
     ansible.builtin.yum:
-      name:  "{{item.name}}"
-      state: "{{item.state}}"
-    loop:
-      - {name: 'nginx', state: 'installed'}
-      - {name: 'postfix' ,state: 'installed'}
-
-  
+      name: mongodb-org
+      state: installed
+      
