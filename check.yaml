@@ -8,3 +8,6 @@
   - name: pringting the variable
     ansible.builtin.debug:
       msg: "the output of the varable is {{mohan}}"
+  - when: mohan.rc =0
+    ansible.builtin.debug:
+      msg: "the user is exists"
