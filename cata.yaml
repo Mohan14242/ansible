@@ -19,7 +19,7 @@
     ansible.builtin.user:
       name: roboshop
   - name: checking the directory is exist or not if not exist creaitng directoor
-    ansible.builtin.stats:
+    ansible.builtin.stat:
       path: /app
     register: directoor
 
