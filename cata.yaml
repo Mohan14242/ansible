@@ -1,0 +1,6 @@
+- name: installing the catalogue component
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: steup the npm source
+    ansible.builtin.script: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
