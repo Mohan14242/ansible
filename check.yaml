@@ -10,10 +10,6 @@
       ansible.builtin.debug:
         msg: "The output of the variable is {{ mohan.stdout }}"
     
-    - name: Check if the user exists
-      ansible.builtin.debug:
-        msg: "The user exists."
-      when: mohan.rc == 0
 
     - name: Check if the user does not exist
       ansible.builtin.debug:
