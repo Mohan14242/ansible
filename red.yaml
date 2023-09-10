@@ -13,4 +13,9 @@
     ansible.builtin.yum:
       name: redis
       state: installed
+  - name: replacing the ip to change the everything
+    ansible.builtin.replace:
+      path: /etc/redis.conf
+      regexp: "127.0.0.1"
+      replace: "0.0.0.0"
 
