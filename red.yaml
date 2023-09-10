@@ -1,8 +1,8 @@
 - name: readying the redis server
   hosts: localhost
+  become: yes
   tasks:
   - name: installing the redis server
     ansible.builtin.yum:
       name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
       state: installed
-      
