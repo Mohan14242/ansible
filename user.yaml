@@ -1,0 +1,22 @@
+- name: setting up the server
+  hosts: localhost
+  become: yes
+  tasks: 
+  - name: dow loading curl compeont 
+    ansible.builtin.command: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+  - name: install the nodejs
+    ansible.builtin.yum: 
+      name: nodejs
+      state: installed
+  - name: checking the user presnt or not 
+    ansible.builtin.command: id roboshop
+    register: out
+    ignore_errors: true
+  
+  - when: out.rc !=0
+    ansible.builtin.user: 
+      name: roboshop
+  
+  - name: check the app  direcotry exist o n
+    ansible.builtin.stat:
+      path: /app
